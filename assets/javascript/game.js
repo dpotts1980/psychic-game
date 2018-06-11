@@ -11,7 +11,7 @@ var guessedLetters = [];
 
     // This function is run whenever the user presses a key.
     document.onkeyup = function(event) {
-
+		console.log(event);
         // Determines which key was pressed.
         var userGuess = event.key;
   
@@ -27,18 +27,18 @@ var guessedLetters = [];
 
 				if (userGuess === computerGuess) {
 					wins++;
-					numGuesses = 9;
-					guessChoices = [];
+					guessesLeft = 9;
+					guessedLetters = [];
 				}
 
 				if (userGuess != computerGuess) {
-					numGuesses --;
-					guessChoices.push(userGuess);
+					guessesLeft --;
+					guessedLetters.push(userGuess);
 				}
 
-				if (numGuesses === 0) {
+				if (guessesLeft === 0) {
 
-				numGuesses = 9;
+				guessesLeft = 9;
 				losses ++;
 				guessChoices = [];
 
@@ -50,8 +50,8 @@ var guessedLetters = [];
 			"<p>Guess what letter I'm thinking of!</p>" +
 			"<p>Wins: " + wins + "</p>" +
 			"<p>Losses: " + losses + "</p>" +
-			"<p>Guesses Left: " + numGuesses + "</p>" +
-			"<p>Your Guesses so far: " + guessChoices.join(", ") + "</p>";
+			"<p>Guesses Left: " + guessesLeft + "</p>" +
+			"<p>Your Guesses so far: " + guessedLetters.join(", ") + "</p>";
 
 			document.querySelector("#game").innerHTML = html;
 
