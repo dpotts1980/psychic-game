@@ -27,6 +27,7 @@ var guessedLetters = [];
 
 				if (userGuess === computerGuess) {
 					wins++;
+					alert("Way to go! You've guesesed corrrectly. You Won! ");
 					guessesLeft = 9;
 					guessedLetters = [];
 				}
@@ -37,13 +38,13 @@ var guessedLetters = [];
 				}
 
 				if (guessesLeft === 0) {
-
-				guessesLeft = 9;
-				losses ++;
-				guessChoices = [];
-
-				
-            }
+					guessesLeft = 9;
+					losses ++;
+					alert(" Sorry you have lost the game. Try again ")
+					guessChoices = [];
+					
+					
+            	}
             
 			var html = 
 			"<h1> The Psychic Game </h1>" +
